@@ -25772,6 +25772,10 @@ page-group .subheading {
   text-transform: uppercase;
 }
 
+page-group .timestamp {
+  font-size: 75%;
+}
+
 page-groups-list .badge {
   position: relative;
   top: -0.5em;
@@ -25794,6 +25798,10 @@ page-groups-list #new-group {
   position: fixed;
   right: 30px;
   bottom: 75px;
+}
+
+page-post .extra-height {
+  height: 10em;
 }
 
 page-home #heading {
