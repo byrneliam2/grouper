@@ -25827,8 +25827,14 @@ page-home .main-btn {
   height: 7em;
 }
 
-page-home .main-btn_icon {
+page-home .main-btn-icon {
   font-size: 3.5em;
+}
+
+page-home .main-btn-text {
+  position: relative;
+  font-size: 1.5em;
+  left: 0.15em;
 }
 
 page-home .secbutton {
@@ -25868,6 +25874,19 @@ page-login ion-row {
 page-login h1 {
   line-height: 50%;
   padding-bottom: 0.5em;
+}
+
+page-manage-account ion-card {
+  padding: 15px;
+}
+
+page-manage-groups ion-card {
+  padding: 15px;
+}
+
+page-settings-main ion-card {
+  cursor: pointer;
+  padding: 15px;
 }
 
 page-signup-confirm #heading {
