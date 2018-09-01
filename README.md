@@ -11,6 +11,8 @@ Features:
 - Create, edit and manage groups with only a few taps
 - Hiding groups that aren't of interest
 
+<img src="sshots/home.png" width="33%" height="33%"><img src="sshots/edit_group.png" width="32%" height="32%"><img src="sshots/private_profile.png" width="33%" height="33%">
+
 #### [Check it out here!](https://mcmanaway1.github.io)
 
 This app uses the Ionic framework and was produced for SWEN 325 at Victoria University of Wellington.
