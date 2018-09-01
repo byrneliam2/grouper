@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Post</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formControl">
+    <ion-list id="text-fields">
+      <ion-input [hidden]="true"></ion-input>
+
+      <ion-item>
+        <ion-label stacked>Content</ion-label>
+        <ion-textarea maxlength="{{resources.MAX_LENGTH_POST}}" formControlName="content" class="extra-height"></ion-textarea>
+      </ion-item>
+
+      <ion-input [hidden]="true"></ion-input>
+    </ion-list>
+  </form>
+
+  <ion-grid padding>
+    <ion-row justify-content-center>
+      <button ion-button (click)="save()">Save</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

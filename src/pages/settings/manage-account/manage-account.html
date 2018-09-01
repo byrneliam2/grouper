@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Manage Account</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-card>
+      <h1><strong>Account Removal</strong></h1>
+      <br>
+      <p>
+        This action will permanently delete your account from the Grouper Database, and cannot be reverted. You will be removed from
+        all groups you have joined, and every group you have created will be deleted.
+      </p>
+      <br>
+      <button ion-button (click)="deleteAccount()">DELETE ACCOUNT</button>
+    </ion-card>
+  </ion-list>
+</ion-content>

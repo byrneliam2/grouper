@@ -1,0 +1,27 @@
+page-signup-confirm {
+
+  #heading {
+    font-size: 1.75em;
+    line-height: 0;
+  }
+
+  #heading-signup {
+    padding-bottom: 1em;
+  }
+
+  #heading-text {
+    color: gray;
+    padding-left: 15px;
+    text-align: left;
+    margin-top: 1rem;
+  }
+
+  #heading-icon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 3.25em;
+    color: map-get($colors, primary);
+  }
+
+}

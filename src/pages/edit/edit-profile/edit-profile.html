@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Edit Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-avatar class="image-upload">
+    <label for="file-input">
+      <div padding text-center>Tap image to change</div>
+      <img src="{{this.image}}" id="main-pic" class="user-picture">
+    </label>
+    <input type="file" id="file-input" (change)="uploadEvent($event)" accept="image/*">
+  </ion-avatar>
+  <form [formGroup]="formControl">
+    <ion-list id="text-fields">
+      <ion-input [hidden]="true"></ion-input>
+
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_NAME}}" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Introduction</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_SUB}}" formControlName="intro"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Bio</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_DESC}}" formControlName="bio"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Favourite Group</ion-label>
+        <ion-select formControlName="fav">
+          <ion-option (ionSelect)="this.favGroup = null">- - -</ion-option>
+          <ion-option *ngFor="let group_obj of groups" (ionSelect)="this.favGroup = group_obj">{{group_obj.val().name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-input [hidden]="true"></ion-input>
+    </ion-list>
+  </form>
+
+  <ion-grid padding>
+    <ion-row justify-content-center>
+      <button ion-button (click)="save()">Save</button>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

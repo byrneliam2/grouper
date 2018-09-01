@@ -1,0 +1,17 @@
+page-loading {
+
+  ion-grid {
+    height: 100%;
+    justify-content: center;
+  }
+
+  #spinner {
+    height: 5em;
+    width: 5em;
+  }
+
+  #text {
+    font-size: 1.25em;
+  }
+
+}

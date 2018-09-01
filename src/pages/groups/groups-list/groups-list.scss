@@ -1,0 +1,27 @@
+page-groups-list {
+
+  .badge {
+    position: relative;
+    top: -0.5em;
+    left: 2em;
+  }
+
+  .group-img {
+    position: relative;
+    bottom: -0.5em;
+    width: 4em;
+    height: 4em;
+  }
+
+  .overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #new-group {
+    position: fixed;
+    right: 30px;
+    bottom: 75px;
+  }
+  
+}

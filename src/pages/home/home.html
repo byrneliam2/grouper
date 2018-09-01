@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button (click)="homeToast()">
+        <img src="assets/imgs/logo.png" class="home-icon">
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Home</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only [navPush]="toSettingsPage">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-slides id="slide" no-padding>
+    <ion-slide *ngIf="slide_data == undefined">
+      <ion-spinner></ion-spinner>
+      <p>Finding groups...</p>
+    </ion-slide>
+    <ion-slide *ngIf="slide_data?.length == 0">
+      <ion-icon name="sad" id="sad-face"></ion-icon>
+      <p>No groups to display!</p>
+    </ion-slide>
+    <ion-slide *ngFor="let slide_obj of slide_data" (click)="goToGroupProfile()">
+      <ion-avatar>
+        <img src="{{slide_obj.val().image}}" id="main-pic">
+      </ion-avatar>
+      <p id="heading">{{slide_obj.val().name}}</p>
+      <p id="subtitle">{{slide_obj.val().category}}</p>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid id="grid" padding>
+    <ion-row nowrap>
+      <ion-col>
+        <button ion-fab round (click)="swipeLeft()" class="secbutton">
+          <ion-icon name="arrow-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-fab round (click)="reject()" class="main-btn">
+          <ion-icon *ngIf="!hideButtonText" name="close" class="main-btn-icon"></ion-icon>
+          <ion-label *ngIf="hideButtonText" class="main-btn-text">{{hideButtonText}}</ion-label>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-fab round (click)="register()" class="main-btn">
+          <ion-icon *ngIf="!joinButtonText" name="checkmark" class="main-btn-icon"></ion-icon>
+          <ion-label *ngIf="joinButtonText" class="main-btn-text">{{joinButtonText}}</ion-label>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-fab round (click)="swipeRight()" class="secbutton">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

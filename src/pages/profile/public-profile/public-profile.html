@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-avatar>
+        <img src="{{this.image}}" id="main-pic">
+      </ion-avatar>
+      <div text-center>
+        <p id="heading">{{name}}</p>
+        <p id="subtitle" *ngIf="intro">{{intro}}</p>
+      </div>
+    </ion-item>
+    <ion-item class="profile-item" *ngIf="bio">
+      <div text-center>
+        <p class="subheading">BIO</p>
+        <p>{{bio}}</p>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button (click)="goHome()">
+        <img src="assets/imgs/logo.png" class="home-icon">
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Groups</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only [navPush]="toSettingsPage">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list no-lines>
+
+    <ion-item *ngIf="group_data == undefined">
+      <ion-grid>
+        <ion-row>
+          <ion-col text-center>
+            <ion-spinner></ion-spinner>
+            <p id="loading-text">Retrieving your groups...</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item *ngFor="let group_obj of group_data; let i = index">
+      <ion-avatar item-start>
+        <img src="{{group_obj.val().image}}" class="group-img">
+        <ion-badge>{{group_obj.val().members.length}}</ion-badge>
+      </ion-avatar>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="overflow" (click)="goToGroupProfile(i)">
+            <h2>{{group_obj.val().name}}</h2>
+            <p>{{group_obj.val().category}}</p>
+          </ion-col>
+          <ion-col>
+            <ion-buttons right>
+              <button ion-button icon-only clear *ngIf="isOwner(i)" (click)="editGroup(i)">
+                <ion-icon name="create"></ion-icon>
+              </button>
+              <button ion-button icon-only clear (click)="remove(i)">
+                <ion-icon name="close"></ion-icon>
+              </button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-fab bottom right class="padded-fab">
+    <button ion-fab [navPush]="toCreateGroupPage">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

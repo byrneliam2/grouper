@@ -1,0 +1,35 @@
+<ion-content padding text-center>
+  <img src="assets/imgs/logo.png" id="small-pic">
+  <h2 id="heading">Welcome to Grouper.</h2>
+  <div id="alert">
+    <ion-icon name="alert" id="alert-icon"></ion-icon>
+    <div id="alert-text">
+      <p>
+        <strong>Before you jump in, we need some info from you!</strong>
+      </p>
+    </div>
+  </div>
+
+  <form [formGroup]="formControl">
+    <ion-list id="text-fields">
+      <ion-input [hidden]="true"></ion-input>
+
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_NAME}}" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Introduction</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_SUB}}" formControlName="intro"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Bio</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_DESC}}" formControlName="bio"></ion-input>
+      </ion-item>
+
+      <button ion-button class="button-margin" (click)="nextPage()" [disabled]="false">Next</button>
+    </ion-list>
+  </form>
+</ion-content>

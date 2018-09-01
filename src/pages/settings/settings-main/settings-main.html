@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let option of options" [navPush]="option.nav">
+      <h2>{{option.header}}</h2>
+      <p>{{option.description}}</p>
+    </ion-card>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Create Group</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-avatar class="image-upload">
+    <label for="file-input">
+      <div padding text-center>Tap image to change</div>
+      <img src="{{this.imageURL}}" id="main-pic" class="group-picture">
+    </label>
+    <input type="file" id="file-input" (change)="uploadEvent($event)" accept="image/*">
+  </ion-avatar>
+  <form [formGroup]="formControl">
+    <ion-list id="text-fields">
+      <ion-input [hidden]="true"></ion-input>
+
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_NAME}}" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Category</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_SUB}}" formControlName="category"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Description</ion-label>
+        <ion-input type="text" maxlength="{{resources.MAX_LENGTH_DESC}}" formControlName="description"></ion-input>
+      </ion-item>
+
+      <ion-input [hidden]="true"></ion-input>
+    </ion-list>
+  </form>
+
+  <ion-grid padding>
+    <ion-row justify-content-center>
+      <button ion-button (click)="create()">Create</button>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,35 @@
+page-signup-picture {
+
+  #heading-text {
+    color: gray;
+    padding-left: 15px;
+    text-align: left;
+    margin-top: 1rem;
+  }
+
+  #heading-icon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 3.25em;
+    color: map-get($colors, primary);
+  }
+
+  #info-text {
+    font-size: 1.1em;
+  }
+
+  .image-upload > input {
+    display: none;
+  }
+
+  .user-picture {
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+  #next-button {
+    margin-top: 30px;
+  }
+
+}

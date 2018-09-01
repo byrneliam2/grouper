@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Manage Groups</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-card *ngFor="let option of options">
+      <h1><strong>{{option.header}}</strong></h1>
+      <br>
+      <p>
+        {{option.description}}
+      </p>
+      <br>
+      <button ion-button (click)='handleAction(option.action)'>{{option.button}}</button>
+    </ion-card>
+  </ion-list>
+</ion-content>

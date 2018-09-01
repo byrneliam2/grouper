@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Group Profile</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only *ngIf="!(isInGroup())" (click)="register()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-avatar>
+        <img src="{{this.image}}" id="main-pic">
+      </ion-avatar>
+      <div text-center>
+        <p id="heading">{{name}}</p>
+        <p id="subtitle">{{category}}</p>
+      </div>
+    </ion-item>
+    <ion-item *ngIf='description != ""' class="profile-item">
+      <div text-center>
+        <p class="subheading">Description</p>
+        <p>{{description}}</p>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div text-center>
+        <p class="subheading">Members</p>
+      </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-2 *ngFor="let member of members">
+            <ion-avatar item-start (click)="goToPublicProfile(member)">
+              <img src="{{member.image}}" class="group-img">
+            </ion-avatar>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item *ngIf="isInGroup() && posts">
+      <div text-center>
+        <p class="subheading">Posts</p>
+      </div>
+      <!-- print in reverse so that most recent posts are at the top -->
+      <ion-card *ngFor="let post of posts.reverse(); let i = index">
+        <ion-card-header class="timestamp">{{post.stamp}}</ion-card-header>
+        <ion-card-content text-wrap>{{post.content}}</ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col *ngIf="isOwner">
+              <button ion-button icon-start clear (click)="editPost(posts.length - i - 1)">
+                <ion-icon name="create"></ion-icon>
+                <div>Edit</div>
+              </button> 
+            </ion-col>
+            <ion-col *ngIf="isOwner">
+              <button ion-button icon-start clear color="danger" (click)="removePost(posts.length - i - 1)">
+                <ion-icon name="trash"></ion-icon>
+                <div>Delete</div>
+              </button> 
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab bottom right *ngIf="isOwner" class="padded-fab">
+    <button ion-fab (click)="createPost()">
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
